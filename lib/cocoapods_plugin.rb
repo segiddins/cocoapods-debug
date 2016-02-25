@@ -1,0 +1,1 @@
+require 'cocoapods-debug/command'
