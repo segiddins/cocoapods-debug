@@ -1,23 +1,11 @@
-require 'pathname'
-ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-$:.unshift((ROOT + 'lib').to_s)
-$:.unshift((ROOT + 'spec').to_s)
-
 require 'bundler/setup'
-require 'bacon'
-require 'mocha-on-bacon'
-require 'pretty_bacon'
-require 'pathname'
+
 require 'cocoapods'
-
-Mocha::Configuration.prevent(:stubbing_non_existent_method)
-
-require 'cocoapods_plugin'
+require 'cocoapods_debug/command'
 
 #-----------------------------------------------------------------------------#
 
 module Pod
-
   # Disable the wrapping so the output is deterministic in the tests.
   #
   UI.disable_wrap = true
@@ -36,7 +24,7 @@ module Pod
         @output << "#{message}\n"
       end
 
-      def warn(message = '', actions = [])
+      def warn(message = '', _actions = [])
         @warnings << "#{message}\n"
       end
 
@@ -48,3 +36,10 @@ module Pod
 end
 
 #-----------------------------------------------------------------------------#
+
+RSpec.configure do |config|
+  config.before(:each) do
+    Pod::UI.output = ''
+    Pod::UI.warnings = ''
+  end
+end

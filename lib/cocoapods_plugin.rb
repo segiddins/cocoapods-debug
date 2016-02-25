@@ -1,1 +1,1 @@
-require 'cocoapods-debug/command'
+require 'cocoapods_debug/command'

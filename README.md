@@ -1,6 +1,6 @@
 # cocoapods-debug
 
-A description of cocoapods-debug.
+A simple plugin to ease debugging CocoaPods.
 
 ## Installation
 
@@ -8,4 +8,4 @@ A description of cocoapods-debug.
 
 ## Usage
 
-    $ pod spec debug POD_NAME
+    $ pod debug
