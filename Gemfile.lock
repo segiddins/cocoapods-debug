@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     cocoapods_debug (0.1.0)
-      pry (= 0.10.3)
+      pry (~> 0.10.3)
 
 GEM
   remote: https://rubygems.org/
